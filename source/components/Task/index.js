@@ -33,16 +33,11 @@ export default class Task extends PureComponent {
 
   _updateTaskMessageOnClick = () => {
     // const { isTaskEditing } = this.state;
-    this.uuu();
     this._updateTask();
 
     //if (isTaskEditing) return null;
 
     return (null);
-  }
-
-  uuu = () => {
-
   }
 
   _cancelUpdatingTaskMessage = () => {
@@ -123,7 +118,8 @@ export default class Task extends PureComponent {
           />
           {/* Broken test */}
           <Edit
-            onClick={() => this._updateTaskMessageOnClick()}
+            className={Styles.updateTaskMessageOnClick}
+            onClick={this._updateTaskMessageOnClick}
             checked={false}
             color1="#3B8EF3"
             color2="#000"
