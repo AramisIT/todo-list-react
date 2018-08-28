@@ -1,7 +1,7 @@
 // Core
 import React, { PureComponent } from 'react';
 import Checkbox from '../../theme/assets/Checkbox';
-import Start from '../../theme/assets/Star';
+import Star from '../../theme/assets/Star';
 import Edit from '../../theme/assets/Edit';
 import Remove from '../../theme/assets/Remove';
 
@@ -21,9 +21,34 @@ export default class Task extends PureComponent {
     message,
   });
 
-  state = {
-    newMessage: 'to do text...',
-    isTaskEditing: true,
+  constructor(props) {
+    super(props);
+
+    this.taskInput = React.createRef();
+    this.state = {
+      newMessage: 'Выполнить важную задачу.',
+      isTaskEditing: true,
+    };
+  }
+
+  _updateTaskMessageOnClick = () => {
+
+  }
+
+  _cancelUpdatingTaskMessage = () => {
+
+  }
+
+  _toggleTaskCompletedState = () => {
+
+  }
+
+  _toggleTaskFavoriteState = () => {
+
+  }
+
+  _removeTask = () => {
+
   }
 
   _updateTaskMessageOnKeyDown = (e) => {
@@ -53,7 +78,14 @@ export default class Task extends PureComponent {
     return (
       <li className={Styles.task}>
         <div className={Styles.content}>
-          <Checkbox color2="white" color1="#3b8ef3" />
+          <Checkbox
+            className={Styles.toggleTaskCompletedState}
+            onClick={this._toggleTaskCompletedState}
+            checked={false}
+            inlineBlock={true}
+            color1="#3B8EF3"
+            color2="#FFF"
+          />
 
           <input
             disabled={true}
@@ -61,14 +93,35 @@ export default class Task extends PureComponent {
             onChange={this._updateNewTaskMessage}
             onKeyDown={this._updateTaskMessageOnKeyDown}
             type="text"
+            ref={this.taskInput}
             value={newMessage}
           />
         </div>
 
         <div className={Styles.actions}>
-          <Start className={Styles.toggleTaskFavoriteState} inlineBlock={true}/>
-          <Edit className={Styles.updateTaskMessageOnClick} inlineBlock={true}/>
-          <Remove inlineBlock={true}/>
+          <Star
+            className={Styles.toggleTaskFavoriteState}
+            inlineBlock={true}
+            color1="#3B8EF3"
+            checked={false}
+            onClick={this._toggleTaskFavoriteState}
+            color2="#000"
+          />
+          <Edit
+            className={Styles.updateTaskMessageOnClick}
+            onClick={this._updateTaskMessageOnClick}
+            checked={false}
+            color1="#3B8EF3"
+            color2="#000"
+            inlineBlock={true}
+          />
+          <Remove
+            onClick={this._removeTask}
+            className={Styles.removeTask}
+            color1="#3B8EF3"
+            color2="#000"
+            inlineBlock={true}
+          />
         </div>
       </li>
     );

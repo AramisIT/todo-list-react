@@ -14,6 +14,34 @@ export default class Scheduler extends Component {
     tasksFilter: '',
   }
 
+  componentDidMount () {
+
+  }
+
+  _getAllCompleted = () => {
+
+  }
+
+  _setTasksFetchingState = () => {
+
+  }
+
+  _fetchTasksAsync = () => {
+
+  }
+
+  _updateTaskAsync = () => {
+
+  }
+
+  _removeTaskAsync = () => {
+
+  }
+
+  _completeAllTasksAsync = () => {
+
+  }
+
   _updateTasksFilter = (e) => {
     const { value: tasksFilter } = e.target;
 
