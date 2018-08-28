@@ -50,6 +50,8 @@ const spies = {
         '_setTaskEditingState',
     ),
     _updateTaskSpy:           jest.spyOn(result.instance(), '_updateTask'),
+    uuuSpy:           jest.spyOn(result.instance(), 'uuu'),
+
     _getTaskShapeSpy:         jest.spyOn(result.instance(), '_getTaskShape'),
     _updateNewTaskMessageSpy: jest.spyOn(
         result.instance(),

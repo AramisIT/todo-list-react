@@ -71,7 +71,7 @@ export default class Scheduler extends Component {
 
       const tasksJsx = tasksData.map(task =>  {
         return (
-          <Task key={task.id}/>
+          <Task key={task.id} {...task}/>
         );
       });
 
